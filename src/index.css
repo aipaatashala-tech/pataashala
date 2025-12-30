@@ -2,95 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* 
+  ========================================
+  SKETCH / NOTEBOOK UI DESIGN SYSTEM
+  ========================================
+  Hand-drawn, paper-like aesthetic with 
+  doodle elements and sticky note colors
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Paper & Canvas Colors */
+    --background: 45 30% 96%;
+    --foreground: 220 15% 20%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card surfaces - cream paper */
+    --card: 45 40% 94%;
+    --card-foreground: 220 15% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 45 40% 94%;
+    --popover-foreground: 220 15% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Pencil/Ink color */
+    --primary: 220 20% 25%;
+    --primary-foreground: 45 30% 96%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Light sketch */
+    --secondary: 45 20% 88%;
+    --secondary-foreground: 220 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Faded pencil */
+    --muted: 45 15% 85%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Highlighter */
+    --accent: 45 80% 75%;
+    --accent-foreground: 220 15% 20%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Sketch-style borders */
+    --border: 220 15% 70%;
+    --input: 220 15% 75%;
+    --ring: 220 20% 40%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Sticky Note Colors */
+    --sticky-yellow: 50 95% 80%;
+    --sticky-pink: 340 80% 85%;
+    --sticky-blue: 210 80% 85%;
+    --sticky-green: 140 60% 80%;
+    --sticky-orange: 30 90% 80%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Sketch effects */
+    --sketch-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --paper-shadow: 2px 3px 8px rgba(0, 0, 0, 0.12);
+    --sketch-border: 2px solid hsl(var(--border));
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar */
+    --sidebar-background: 45 25% 92%;
+    --sidebar-foreground: 220 15% 25%;
+    --sidebar-primary: 220 20% 25%;
+    --sidebar-primary-foreground: 45 30% 96%;
+    --sidebar-accent: 45 40% 88%;
+    --sidebar-accent-foreground: 220 15% 25%;
+    --sidebar-border: 220 15% 80%;
+    --sidebar-ring: 220 20% 40%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 20% 12%;
+    --foreground: 45 20% 90%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 18% 16%;
+    --card-foreground: 45 20% 90%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 18% 16%;
+    --popover-foreground: 45 20% 90%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 45 30% 85%;
+    --primary-foreground: 220 20% 12%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 15% 22%;
+    --secondary-foreground: 45 20% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 15% 25%;
+    --muted-foreground: 45 15% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 60% 50%;
+    --accent-foreground: 220 20% 12%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 45 20% 90%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 15% 30%;
+    --input: 220 15% 30%;
+    --ring: 45 30% 70%;
+
+    --sticky-yellow: 50 70% 35%;
+    --sticky-pink: 340 50% 40%;
+    --sticky-blue: 210 50% 40%;
+    --sticky-green: 140 40% 35%;
+    --sticky-orange: 30 60% 40%;
+
+    --sidebar-background: 220 18% 14%;
+    --sidebar-foreground: 45 20% 90%;
+    --sidebar-primary: 45 30% 85%;
+    --sidebar-primary-foreground: 220 20% 12%;
+    --sidebar-accent: 220 15% 20%;
+    --sidebar-accent-foreground: 45 20% 90%;
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 45 30% 70%;
   }
 }
 
@@ -100,6 +126,76 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-hand;
+    background-image: 
+      linear-gradient(90deg, transparent 79px, hsl(var(--border) / 0.3) 79px, hsl(var(--border) / 0.3) 81px, transparent 81px),
+      linear-gradient(hsl(var(--border) / 0.15) 1px, transparent 1px);
+    background-size: 100% 28px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Sketch-style card with rough edges */
+  .sketch-card {
+    @apply relative bg-card rounded-lg p-4;
+    box-shadow: var(--paper-shadow);
+    border: 2px solid hsl(var(--border));
+    border-radius: 3px 15px 5px 10px;
+  }
+
+  /* Sticky note styles */
+  .sticky-yellow {
+    background-color: hsl(var(--sticky-yellow));
+  }
+  .sticky-pink {
+    background-color: hsl(var(--sticky-pink));
+  }
+  .sticky-blue {
+    background-color: hsl(var(--sticky-blue));
+  }
+  .sticky-green {
+    background-color: hsl(var(--sticky-green));
+  }
+  .sticky-orange {
+    background-color: hsl(var(--sticky-orange));
+  }
+
+  /* Handwritten underline */
+  .sketch-underline {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,8 Q25,2 50,8 T100,8' fill='none' stroke='%23333' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 8px;
+    padding-bottom: 8px;
+  }
+
+  /* Doodle arrow */
+  .doodle-arrow {
+    @apply text-foreground/60;
+  }
+}
+
+@layer utilities {
+  /* Paper texture overlay */
+  .paper-texture {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  /* Sketch border effect */
+  .sketch-border {
+    border: 2px solid hsl(var(--border));
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  }
+
+  /* Tape effect for sticky notes */
+  .tape-effect::before {
+    content: '';
+    @apply absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-5 bg-yellow-100/80;
+    transform: translateX(-50%) rotate(-2deg);
+    border-radius: 2px;
   }
 }
