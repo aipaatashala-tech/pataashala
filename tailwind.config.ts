@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        hand: ['Caveat', 'cursive'],
+        body: ['Patrick Hand', 'cursive'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,6 +51,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        sticky: {
+          yellow: "hsl(var(--sticky-yellow))",
+          pink: "hsl(var(--sticky-pink))",
+          blue: "hsl(var(--sticky-blue))",
+          green: "hsl(var(--sticky-green))",
+          orange: "hsl(var(--sticky-orange))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -62,28 +73,57 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        sketch: "255px 15px 225px 15px/15px 225px 15px 255px",
+      },
+      boxShadow: {
+        'sketch': '2px 3px 8px rgba(0, 0, 0, 0.12)',
+        'paper': '0 4px 20px rgba(0, 0, 0, 0.08)',
+        'sticky': '3px 3px 0 rgba(0, 0, 0, 0.1)',
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "wobble": {
+          "0%, 100%": { transform: "rotate(-1deg)" },
+          "50%": { transform: "rotate(1deg)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        "scribble": {
+          "0%": { strokeDashoffset: "1000" },
+          "100%": { strokeDashoffset: "0" },
+        },
+        "pencil-draw": {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "bounce-gentle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "wobble": "wobble 0.3s ease-in-out",
+        "wobble-slow": "wobble 2s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
+        "scribble": "scribble 1s ease-out forwards",
+        "pencil-draw": "pencil-draw 0.5s ease-out forwards",
+        "fade-in-up": "fade-in-up 0.6s ease-out forwards",
+        "bounce-gentle": "bounce-gentle 2s ease-in-out infinite",
       },
     },
   },
