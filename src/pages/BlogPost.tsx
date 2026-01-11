@@ -9,6 +9,18 @@ import { BlogCard } from '@/components/BlogCard';
 import { StickyFooter } from '@/components/StickyFooter';
 import { DoodleDecorations } from '@/components/DoodleDecorations';
 import { Badge } from '@/components/ui/badge';
+import { AdBanner, AdSidebar, InlineAd } from '@/components/ads';
+
+/**
+ * BLOG POST PAGE WITH AD PLACEMENTS
+ * 
+ * Ad positions:
+ * 1. Header banner - Below breadcrumbs
+ * 2. Inline ad - After main content, before FAQs
+ * 3. Inline ad - After related posts
+ * 4. Sidebar - Right side with sticky ads (desktop)
+ * 5. Footer banner - Bottom of page
+ */
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -42,8 +54,9 @@ const BlogPost = () => {
       <div className="min-h-screen relative paper-texture">
         <DoodleDecorations />
 
-        <article className="container mx-auto px-4 py-8 max-w-4xl">
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+        <div className="container mx-auto px-4 py-8">
+          {/* Breadcrumb navigation */}
+          <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6 max-w-4xl">
             <Link to="/" className="hover:text-primary flex items-center gap-1">
               <Home className="w-4 h-4" /> Home
             </Link>
@@ -53,63 +66,103 @@ const BlogPost = () => {
             <span className="text-foreground truncate">{post.title}</span>
           </nav>
 
-          <motion.header initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-            <Badge variant="secondary" className="mb-4">{post.category}</Badge>
-            <h1 className="font-hand text-3xl md:text-4xl text-foreground mb-4">{post.title}</h1>
-            
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
-              <span className="flex items-center gap-1">
-                <span>{post.author.avatar}</span> {post.author.name}
-              </span>
-              <span className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
-                {new Date(post.publishedDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-              </span>
-              <span className="flex items-center gap-1">
-                <Clock className="w-4 h-4" /> {post.readTime}
-              </span>
-            </div>
+          {/* 
+            HEADER AD BANNER
+            Shows after breadcrumbs, before article
+          */}
+          <AdBanner variant="header" className="mb-8" />
 
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map(tag => (
-                <Badge key={tag} variant="outline" className="text-xs">
-                  <Tag className="w-3 h-3 mr-1" /> {tag}
-                </Badge>
-              ))}
-            </div>
-          </motion.header>
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Main Article Content */}
+            <article className="flex-1 max-w-4xl">
+              <motion.header initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
+                <Badge variant="secondary" className="mb-4">{post.category}</Badge>
+                <h1 className="font-hand text-3xl md:text-4xl text-foreground mb-4">{post.title}</h1>
+                
+                <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
+                  <span className="flex items-center gap-1">
+                    <span>{post.author.avatar}</span> {post.author.name}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Calendar className="w-4 h-4" />
+                    {new Date(post.publishedDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="w-4 h-4" /> {post.readTime}
+                  </span>
+                </div>
 
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 0.2 }}
-            className="prose prose-slate dark:prose-invert max-w-none
-              prose-headings:font-hand prose-headings:text-foreground
-              prose-p:text-muted-foreground prose-li:text-muted-foreground
-              prose-strong:text-foreground prose-a:text-primary"
-            dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br/>').replace(/## /g, '<h2>').replace(/### /g, '<h3>').replace(/<h2>/g, '</p><h2>').replace(/<h3>/g, '</p><h3>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
-          />
+                <div className="flex flex-wrap gap-2">
+                  {post.tags.map(tag => (
+                    <Badge key={tag} variant="outline" className="text-xs">
+                      <Tag className="w-3 h-3 mr-1" /> {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </motion.header>
 
-          <FAQSection faqs={post.faqs} />
-          <AuthorCard author={post.author} />
+              <motion.div 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                transition={{ delay: 0.2 }}
+                className="prose prose-slate dark:prose-invert max-w-none
+                  prose-headings:font-hand prose-headings:text-foreground
+                  prose-p:text-muted-foreground prose-li:text-muted-foreground
+                  prose-strong:text-foreground prose-a:text-primary"
+                dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br/>').replace(/## /g, '<h2>').replace(/### /g, '<h3>').replace(/<h2>/g, '</p><h2>').replace(/<h3>/g, '</p><h3>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
+              />
 
-          {relatedPosts.length > 0 && (
-            <section className="mt-12">
-              <h2 className="font-hand text-2xl text-foreground mb-6">📖 Related Articles</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {relatedPosts.map((related, i) => (
-                  <BlogCard key={related.id} post={related} index={i} />
-                ))}
+              {/* 
+                INLINE AD
+                After article content, before FAQs
+                Good for: Related content, course promotions
+              */}
+              <InlineAd className="my-8" />
+
+              <FAQSection faqs={post.faqs} />
+              <AuthorCard author={post.author} />
+
+              {relatedPosts.length > 0 && (
+                <section className="mt-12">
+                  <h2 className="font-hand text-2xl text-foreground mb-6">📖 Related Articles</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {relatedPosts.map((related, i) => (
+                      <BlogCard key={related.id} post={related} index={i} />
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* 
+                INLINE AD
+                After related posts
+                Good for: Affiliate banners, newsletter signup
+              */}
+              <InlineAd className="mt-8" />
+
+              <div className="mt-8">
+                <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:underline">
+                  <ArrowLeft className="w-4 h-4" /> Back to all articles
+                </Link>
               </div>
-            </section>
-          )}
+            </article>
 
-          <div className="mt-8">
-            <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:underline">
-              <ArrowLeft className="w-4 h-4" /> Back to all articles
-            </Link>
+            {/* 
+              SIDEBAR ADS
+              Sticky sidebar for desktop
+              Best for: Square ads, promotional content
+            */}
+            <AdSidebar />
           </div>
-        </article>
+        </div>
+
+        {/* 
+          FOOTER AD BANNER
+          Final ad placement before footer
+        */}
+        <div className="pb-20">
+          <AdBanner variant="footer" />
+        </div>
 
         <StickyFooter />
       </div>
