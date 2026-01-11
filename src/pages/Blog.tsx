@@ -6,8 +6,26 @@ import { StickyFooter } from '@/components/StickyFooter';
 import { DoodleDecorations } from '@/components/DoodleDecorations';
 import { Link } from 'react-router-dom';
 import { Home } from 'lucide-react';
+import { AdBanner, AdSidebar, InlineAd } from '@/components/ads';
+
+/**
+ * BLOG PAGE WITH AD PLACEMENTS
+ * 
+ * Ad positions:
+ * 1. Header banner - Below page header
+ * 2. Inline ads - Between blog post rows (every 6 posts)
+ * 3. Sidebar - Right side with sticky ads
+ * 4. Footer banner - Bottom of page
+ */
 
 const Blog = () => {
+  // Split posts into chunks for ad insertion
+  const postsPerSection = 6;
+  const postChunks: typeof allBlogPosts[] = [];
+  for (let i = 0; i < allBlogPosts.length; i += postsPerSection) {
+    postChunks.push(allBlogPosts.slice(i, i + postsPerSection));
+  }
+
   return (
     <>
       <Helmet>
@@ -39,13 +57,55 @@ const Blog = () => {
           </motion.div>
         </header>
 
-        <main className="container mx-auto px-4 pb-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {allBlogPosts.map((post, index) => (
-              <BlogCard key={post.id} post={post} index={index} />
-            ))}
+        {/* 
+          HEADER AD BANNER
+          Prime position after header
+        */}
+        <AdBanner variant="header" />
+
+        <div className="container mx-auto px-4 pb-32">
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Main Content */}
+            <main className="flex-1">
+              {postChunks.map((chunk, chunkIndex) => (
+                <div key={chunkIndex}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    {chunk.map((post, index) => (
+                      <BlogCard 
+                        key={post.id} 
+                        post={post} 
+                        index={chunkIndex * postsPerSection + index} 
+                      />
+                    ))}
+                  </div>
+                  
+                  {/* 
+                    INLINE AD
+                    Shows between post sections
+                    Good for: Native content ads, related content widgets
+                  */}
+                  {chunkIndex < postChunks.length - 1 && (
+                    <InlineAd className="mb-8" />
+                  )}
+                </div>
+              ))}
+            </main>
+
+            {/* 
+              SIDEBAR ADS
+              Sticky ad sidebar for desktop users
+            */}
+            <AdSidebar />
           </div>
-        </main>
+        </div>
+
+        {/* 
+          FOOTER AD BANNER
+          Last ad before footer
+        */}
+        <div className="pb-20">
+          <AdBanner variant="footer" />
+        </div>
 
         <StickyFooter />
       </div>
