@@ -1,33 +1,27 @@
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 /**
- * AD BANNER COMPONENT
+ * AD BANNER COMPONENT - GOOGLE ADSENSE
  * 
  * Full-width banner ads for header and footer positions.
- * Supports multiple ad formats and is fully responsive.
+ * Uses actual Google AdSense ad units.
  * 
- * HOW TO INTEGRATE REAL ADS:
+ * Publisher ID: ca-pub-6435345827965097
  * 
- * 1. GOOGLE ADSENSE:
- *    Replace the placeholder div with:
- *    ```
- *    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>
- *    <ins class="adsbygoogle"
- *         style="display:block"
- *         data-ad-client="ca-pub-XXXXXXXX"
- *         data-ad-slot="XXXXXXXXXX"
- *         data-ad-format="horizontal"
- *         data-full-width-responsive="true"></ins>
- *    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
- *    ```
- * 
- * 2. AFFILIATE BANNERS:
- *    Replace with affiliate network's provided HTML/image code
- * 
- * 3. CUSTOM ADS:
- *    Replace with your own promotional content
+ * TO CONFIGURE:
+ * 1. Create ad units in your AdSense dashboard
+ * 2. Copy the data-ad-slot values
+ * 3. Update the adSlots object below with your slot IDs
  */
+
+// Declare adsbygoogle for TypeScript
+declare global {
+  interface Window {
+    adsbygoogle: unknown[];
+  }
+}
 
 interface AdBannerProps {
   variant?: 'header' | 'footer' | 'inline';
@@ -40,10 +34,29 @@ export const AdBanner = ({
   className,
   animate = true 
 }: AdBannerProps) => {
+  const adRef = useRef<HTMLModElement>(null);
+
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined' && adRef.current) {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      }
+    } catch (error) {
+      console.error('AdSense error:', error);
+    }
+  }, []);
+
   const variantStyles = {
     header: 'bg-muted/30 border-b border-border/50',
     footer: 'bg-muted/20 border-t border-border/50',
     inline: 'bg-card/50 border border-border/30 rounded-lg my-6',
+  };
+
+  const adStyle: React.CSSProperties = {
+    display: 'block',
+    width: '100%',
+    height: variant === 'inline' ? '120px' : '90px',
+    maxWidth: '728px',
   };
 
   const content = (
@@ -54,34 +67,17 @@ export const AdBanner = ({
         className
       )}
     >
-      <div className="container mx-auto">
-        {/* 
-          AD CONTENT CONTAINER
-          Replace this entire div with your actual ad code
-        */}
-        <div 
-          className={cn(
-            'mx-auto flex items-center justify-center',
-            'border-2 border-dashed border-muted-foreground/20 rounded-lg',
-            'bg-background/50',
-            variant === 'header' ? 'h-[90px] max-w-[728px]' : '',
-            variant === 'footer' ? 'h-[90px] max-w-[728px]' : '',
-            variant === 'inline' ? 'h-[120px]' : ''
-          )}
-          data-ad-slot={`banner-${variant}`}
-          aria-label={`${variant} advertisement banner`}
-        >
-          <div className="text-center">
-            <p className="text-muted-foreground/50 text-sm">
-              📢 Advertisement Banner
-            </p>
-            <p className="text-muted-foreground/30 text-xs mt-1">
-              {variant === 'header' && '728x90 Leaderboard'}
-              {variant === 'footer' && '728x90 Footer Banner'}
-              {variant === 'inline' && 'Responsive Inline Ad'}
-            </p>
-          </div>
-        </div>
+      <div className="container mx-auto flex justify-center">
+        {/* Google AdSense Banner Ad Unit */}
+        <ins
+          ref={adRef}
+          className="adsbygoogle"
+          style={adStyle}
+          data-ad-client="ca-pub-6435345827965097"
+          data-ad-slot="" /* Add your ad slot ID from AdSense dashboard */
+          data-ad-format="horizontal"
+          data-full-width-responsive="true"
+        />
       </div>
     </div>
   );
