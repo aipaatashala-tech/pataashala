@@ -108,7 +108,7 @@ export const AdPlaceholder = ({
         className="adsbygoogle"
         style={formatConfig.style}
         data-ad-client="ca-pub-6435345827965097"
-        data-ad-slot="" /* Add your ad slot ID from AdSense dashboard */
+        data-ad-slot="7308105727"
         data-ad-format={formatConfig.format}
         data-full-width-responsive="true"
       />

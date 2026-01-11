@@ -49,7 +49,7 @@ const SidebarAdUnit = ({ id, label }: { id: string; label: string }) => {
         className="adsbygoogle"
         style={{ display: 'block', width: '300px', height: '250px' }}
         data-ad-client="ca-pub-6435345827965097"
-        data-ad-slot="" /* Add your ad slot ID from AdSense dashboard */
+        data-ad-slot="7308105727"
         data-ad-format="rectangle"
         id={id}
       />
@@ -88,7 +88,7 @@ export const AdSidebar = ({ className, showOnMobile = false }: AdSidebarProps) =
             className="adsbygoogle"
             style={{ display: 'block', width: '100%', height: '100px' }}
             data-ad-client="ca-pub-6435345827965097"
-            data-ad-slot="" /* Add your ad slot ID from AdSense dashboard */
+            data-ad-slot="7308105727"
             data-ad-format="fluid"
           />
         </div>
