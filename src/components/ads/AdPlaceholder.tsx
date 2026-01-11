@@ -35,29 +35,29 @@ interface AdPlaceholderProps {
 
 // Ad format configurations for different ad types
 const adFormats: Record<AdType, { format: string; style: React.CSSProperties }> = {
-  banner: { 
-    format: 'horizontal', 
-    style: { display: 'block', width: '100%', height: '90px' } 
+  banner: {
+    format: 'horizontal',
+    style: { display: 'block', width: '100%', height: '90px' }
   },
-  sidebar: { 
-    format: 'rectangle', 
-    style: { display: 'block', width: '300px', height: '250px' } 
+  sidebar: {
+    format: 'rectangle',
+    style: { display: 'block', width: '300px', height: '250px' }
   },
-  inline: { 
-    format: 'fluid', 
-    style: { display: 'block', width: '100%', height: '120px' } 
+  inline: {
+    format: 'fluid',
+    style: { display: 'block', width: '100%', height: '120px' }
   },
-  square: { 
-    format: 'rectangle', 
-    style: { display: 'block', width: '300px', height: '250px' } 
+  square: {
+    format: 'rectangle',
+    style: { display: 'block', width: '300px', height: '250px' }
   },
-  leaderboard: { 
-    format: 'horizontal', 
-    style: { display: 'block', width: '728px', maxWidth: '100%', height: '90px' } 
+  leaderboard: {
+    format: 'horizontal',
+    style: { display: 'block', width: '728px', maxWidth: '100%', height: '90px' }
   },
-  skyscraper: { 
-    format: 'vertical', 
-    style: { display: 'block', width: '160px', height: '600px' } 
+  skyscraper: {
+    format: 'vertical',
+    style: { display: 'block', width: '160px', height: '600px' }
   },
 };
 
@@ -68,16 +68,16 @@ declare global {
   }
 }
 
-export const AdPlaceholder = ({ 
-  type, 
-  position, 
-  className, 
+export const AdPlaceholder = ({
+  type,
+  position,
+  className,
   showLabel = false,
-  id 
+  id
 }: AdPlaceholderProps) => {
   const adRef = useRef<HTMLModElement>(null);
   const formatConfig = adFormats[type];
-  
+
   useEffect(() => {
     // Push ad to AdSense when component mounts
     try {
@@ -93,7 +93,7 @@ export const AdPlaceholder = ({
     <div
       id={id || `ad-${position}-${type}`}
       className={cn(
-        'relative flex items-center justify-center overflow-hidden',
+        'relative flex items-center justify-center overflow-hidden bg-muted/5',
         'min-h-[90px]',
         className
       )}
@@ -102,6 +102,10 @@ export const AdPlaceholder = ({
       role="complementary"
       aria-label={`Advertisement - ${position} ${type}`}
     >
+      <div className="absolute top-0 right-0 z-10 rounded-bl-md border-b border-l border-border/20 bg-background/80 px-1.5 py-0.5 font-hand text-[10px] text-muted-foreground backdrop-blur-sm">
+        Ad
+      </div>
+
       {/* Google AdSense Ad Unit */}
       <ins
         ref={adRef}
@@ -112,7 +116,7 @@ export const AdPlaceholder = ({
         data-ad-format={formatConfig.format}
         data-full-width-responsive="true"
       />
-      
+
       {/* Optional label for development/debugging */}
       {showLabel && (
         <div className="absolute inset-0 flex items-center justify-center bg-muted/50 pointer-events-none">
@@ -130,7 +134,7 @@ export const AdPlaceholder = ({
  * Best for: Leaderboard ads (728x90) or responsive banners
  */
 export const HeaderAd = ({ className }: { className?: string }) => (
-  <div className={cn('w-full flex justify-center py-2 bg-background/50', className)}>
+  <div className={cn('w-full flex justify-center py-2 bg-background/50 border-b border-dashed border-border/30', className)}>
     <AdPlaceholder type="leaderboard" position="header" />
   </div>
 );
@@ -140,7 +144,7 @@ export const HeaderAd = ({ className }: { className?: string }) => (
  * Best for: Banner ads, affiliate promotions
  */
 export const FooterAd = ({ className }: { className?: string }) => (
-  <div className={cn('w-full flex justify-center py-4', className)}>
+  <div className={cn('w-full flex justify-center py-4 border-t border-dashed border-border/30', className)}>
     <AdPlaceholder type="banner" position="footer" />
   </div>
 );
@@ -150,12 +154,16 @@ export const FooterAd = ({ className }: { className?: string }) => (
  * Best for: Square ads (300x250), skyscraper ads (160x600)
  */
 export const SidebarAds = ({ className }: { className?: string }) => (
-  <aside 
+  <aside
     className={cn('space-y-4 sticky top-4', className)}
     aria-label="Sidebar advertisements"
   >
-    <AdPlaceholder type="square" position="sidebar" id="sidebar-ad-1" />
-    <AdPlaceholder type="square" position="sidebar" id="sidebar-ad-2" />
+    <div className="sketch-card p-3">
+      <AdPlaceholder type="square" position="sidebar" id="sidebar-ad-1" />
+    </div>
+    <div className="sketch-card p-3">
+      <AdPlaceholder type="square" position="sidebar" id="sidebar-ad-2" />
+    </div>
   </aside>
 );
 
@@ -164,7 +172,7 @@ export const SidebarAds = ({ className }: { className?: string }) => (
  * Best for: Between paragraphs, after headings
  */
 export const InlineAd = ({ className }: { className?: string }) => (
-  <div className={cn('my-6 flex justify-center', className)}>
+  <div className={cn('my-6 flex justify-center sketch-card p-4 mx-4', className)}>
     <AdPlaceholder type="inline" position="content" />
   </div>
 );
@@ -174,7 +182,7 @@ export const InlineAd = ({ className }: { className?: string }) => (
  * Best for: Between major content sections
  */
 export const SectionAd = ({ className }: { className?: string }) => (
-  <div className={cn('my-8 py-4 flex justify-center', className)}>
+  <div className={cn('my-8 py-6 flex justify-center border-y-2 border-dashed border-border/40 bg-muted/5', className)}>
     <AdPlaceholder type="banner" position="between-sections" />
   </div>
 );

@@ -14,7 +14,7 @@ const Disclaimer = () => {
 
       <div className="min-h-screen relative paper-texture">
         <DoodleDecorations />
-        
+
         <main className="container mx-auto px-4 md:px-8 py-16 pb-32 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -24,7 +24,7 @@ const Disclaimer = () => {
           >
             {/* Header */}
             <div className="text-center mb-12">
-              <motion.h1 
+              <motion.h1
                 className="font-hand text-5xl md:text-6xl text-foreground mb-4"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const Disclaimer = () => {
             {/* Content */}
             <div className="space-y-8">
               {/* General Disclaimer */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -48,22 +48,22 @@ const Disclaimer = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">📋 General Disclaimer</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  The information provided on Learning Hub ("the Website") is for general informational and 
-                  educational purposes only. All information on the Website is provided in good faith, 
-                  however, we make no representation or warranty of any kind, express or implied, regarding 
-                  the accuracy, adequacy, validity, reliability, availability, or completeness of any 
+                  The information provided on Learning Hub ("the Website") is for general informational and
+                  educational purposes only. All information on the Website is provided in good faith,
+                  however, we make no representation or warranty of any kind, express or implied, regarding
+                  the accuracy, adequacy, validity, reliability, availability, or completeness of any
                   information on the Website.
                 </p>
                 <p className="text-foreground/80 leading-relaxed">
-                  Under no circumstance shall we have any liability to you for any loss or damage of any 
-                  kind incurred as a result of the use of the Website or reliance on any information 
-                  provided on the Website. Your use of the Website and your reliance on any information 
+                  Under no circumstance shall we have any liability to you for any loss or damage of any
+                  kind incurred as a result of the use of the Website or reliance on any information
+                  provided on the Website. Your use of the Website and your reliance on any information
                   on the Website is solely at your own risk.
                 </p>
               </motion.section>
 
               {/* Educational Content */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8 bg-sticky-yellow/20"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -71,7 +71,7 @@ const Disclaimer = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">📚 Educational Content Disclaimer</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  The educational content on this Website, including but not limited to tutorials, guides, 
+                  The educational content on this Website, including but not limited to tutorials, guides,
                   articles, and resources, is intended for learning purposes only. Please understand that:
                 </p>
                 <ul className="space-y-3 ml-4 text-foreground/80">
@@ -99,7 +99,7 @@ const Disclaimer = () => {
               </motion.section>
 
               {/* No Professional Advice */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -128,13 +128,13 @@ const Disclaimer = () => {
                   </li>
                 </ul>
                 <p className="text-foreground/80 leading-relaxed mt-4">
-                  For professional advice, please consult with appropriate licensed professionals in your 
+                  For professional advice, please consult with appropriate licensed professionals in your
                   jurisdiction.
                 </p>
               </motion.section>
 
               {/* External Links */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8 bg-sticky-blue/20"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -142,7 +142,7 @@ const Disclaimer = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">🔗 External Links Disclaimer</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  The Website may contain links to external websites that are not provided or maintained by 
+                  The Website may contain links to external websites that are not provided or maintained by
                   or in any way affiliated with Learning Hub. Please note that:
                 </p>
                 <ul className="space-y-2 ml-4 text-foreground/80">
@@ -166,7 +166,7 @@ const Disclaimer = () => {
               </motion.section>
 
               {/* Affiliate Disclosure */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -174,7 +174,7 @@ const Disclaimer = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">💰 Affiliate Disclosure</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  The Website may contain affiliate links. This means we may earn a commission if you click 
+                  The Website may contain affiliate links. This means we may earn a commission if you click
                   on a link and make a purchase. This comes at no additional cost to you.
                 </p>
                 <ul className="space-y-2 ml-4 text-foreground/80">
@@ -194,7 +194,7 @@ const Disclaimer = () => {
               </motion.section>
 
               {/* Advertising Disclaimer */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8 bg-sticky-green/20"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -202,7 +202,7 @@ const Disclaimer = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">📢 Advertising Disclaimer</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  This Website may display advertisements provided by third-party advertising networks, 
+                  This Website may display advertisements provided by third-party advertising networks,
                   including Google AdSense.
                 </p>
                 <ul className="space-y-2 ml-4 text-foreground/80">
@@ -226,7 +226,7 @@ const Disclaimer = () => {
               </motion.section>
 
               {/* Testimonials */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -234,14 +234,14 @@ const Disclaimer = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">💬 Testimonials Disclaimer</h2>
                 <p className="text-foreground/80 leading-relaxed">
-                  Any testimonials or success stories on this Website are individual experiences and do not 
-                  guarantee that all users will achieve the same results. Individual results may vary based 
+                  Any testimonials or success stories on this Website are individual experiences and do not
+                  guarantee that all users will achieve the same results. Individual results may vary based
                   on numerous factors including prior knowledge, time invested, and personal circumstances.
                 </p>
               </motion.section>
 
               {/* Fair Use */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8 bg-sticky-pink/20"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -249,19 +249,19 @@ const Disclaimer = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">📖 Fair Use Disclaimer</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  This Website may contain copyrighted material the use of which has not always been 
-                  specifically authorized by the copyright owner. We make such material available for 
-                  educational purposes. This constitutes a "fair use" of any such copyrighted material as 
+                  This Website may contain copyrighted material the use of which has not always been
+                  specifically authorized by the copyright owner. We make such material available for
+                  educational purposes. This constitutes a "fair use" of any such copyrighted material as
                   provided for in applicable copyright law.
                 </p>
                 <p className="text-foreground/80 leading-relaxed">
-                  If you wish to use copyrighted material from this Website for purposes that go beyond 
+                  If you wish to use copyrighted material from this Website for purposes that go beyond
                   "fair use," you must obtain permission from the copyright owner.
                 </p>
               </motion.section>
 
               {/* Errors and Omissions */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -269,15 +269,15 @@ const Disclaimer = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">🔍 Errors and Omissions</h2>
                 <p className="text-foreground/80 leading-relaxed">
-                  While we strive to ensure that information on this Website is correct, we do not warrant 
-                  the accuracy or completeness of the materials. The Website may contain typographical 
-                  errors, technical inaccuracies, or outdated information. We reserve the right to make 
+                  While we strive to ensure that information on this Website is correct, we do not warrant
+                  the accuracy or completeness of the materials. The Website may contain typographical
+                  errors, technical inaccuracies, or outdated information. We reserve the right to make
                   changes, corrections, and improvements at any time without notice.
                 </p>
               </motion.section>
 
               {/* Views Expressed */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8 bg-sticky-orange/20"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -285,14 +285,14 @@ const Disclaimer = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">💭 Views Expressed</h2>
                 <p className="text-foreground/80 leading-relaxed">
-                  Any views or opinions represented in this Website are personal and belong solely to the 
-                  Website owner and do not represent those of any organization, employer, or company the 
+                  Any views or opinions represented in this Website are personal and belong solely to the
+                  Website owner and do not represent those of any organization, employer, or company the
                   owner may be affiliated with, unless explicitly stated.
                 </p>
               </motion.section>
 
               {/* Contact */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -303,10 +303,7 @@ const Disclaimer = () => {
                   If you have any questions or concerns about this Disclaimer, please contact us:
                 </p>
                 <ul className="space-y-2 ml-4 text-foreground/80">
-                  <li className="flex items-start gap-2">
-                    <span>📧</span>
-                    <span>Email: legal@learninghub.com</span>
-                  </li>
+
                   <li className="flex items-start gap-2">
                     <span>📝</span>
                     <span>Contact Form: <Link to="/contact" className="text-primary hover:underline">Click here</Link></span>
@@ -316,7 +313,7 @@ const Disclaimer = () => {
             </div>
 
             {/* Navigation Links */}
-            <motion.nav 
+            <motion.nav
               className="mt-12 pt-8 border-t-2 border-border"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

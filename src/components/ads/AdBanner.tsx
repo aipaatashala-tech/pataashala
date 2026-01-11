@@ -29,10 +29,10 @@ interface AdBannerProps {
   animate?: boolean;
 }
 
-export const AdBanner = ({ 
-  variant = 'header', 
+export const AdBanner = ({
+  variant = 'header',
   className,
-  animate = true 
+  animate = true
 }: AdBannerProps) => {
   const adRef = useRef<HTMLModElement>(null);
 
@@ -47,9 +47,9 @@ export const AdBanner = ({
   }, []);
 
   const variantStyles = {
-    header: 'bg-muted/30 border-b border-border/50',
-    footer: 'bg-muted/20 border-t border-border/50',
-    inline: 'bg-card/50 border border-border/30 rounded-lg my-6',
+    header: 'bg-muted/10 border-b-2 border-dashed border-border/60 pb-4',
+    footer: 'bg-muted/10 border-t-2 border-dashed border-border/60 pt-4',
+    inline: 'sketch-card bg-card/50 my-6',
   };
 
   const adStyle: React.CSSProperties = {
@@ -60,13 +60,16 @@ export const AdBanner = ({
   };
 
   const content = (
-    <div 
+    <div
       className={cn(
-        'w-full py-3 px-4',
+        'w-full relative group',
         variantStyles[variant],
         className
       )}
     >
+      <div className="absolute right-4 top-0 -translate-y-1/2 bg-background px-2 text-[10px] text-muted-foreground font-hand border border-border/40 rounded-full shadow-sm">
+        Advertisement
+      </div>
       <div className="container mx-auto flex justify-center">
         {/* Google AdSense Banner Ad Unit */}
         <ins

@@ -42,17 +42,21 @@ const SidebarAdUnit = ({ id, label }: { id: string; label: string }) => {
   }, []);
 
   return (
-    <div className="rounded-xl bg-card/50 p-3 border border-border/50">
-      <p className="text-xs text-muted-foreground mb-2 font-hand">{label}</p>
-      <ins
-        ref={adRef}
-        className="adsbygoogle"
-        style={{ display: 'block', width: '300px', height: '250px' }}
-        data-ad-client="ca-pub-6435345827965097"
-        data-ad-slot="7308105727"
-        data-ad-format="rectangle"
-        id={id}
-      />
+    <div className="sketch-card tape-effect relative mt-6 bg-card">
+      <div className="absolute -top-3 -right-2 rotate-3 bg-yellow-200 px-2 py-0.5 shadow-sm">
+        <p className="font-hand text-xs font-bold text-yellow-900">{label}</p>
+      </div>
+      <div className="flex justify-center overflow-hidden rounded-sm bg-white/50">
+        <ins
+          ref={adRef}
+          className="adsbygoogle"
+          style={{ display: 'block', width: '300px', height: '250px' }}
+          data-ad-client="ca-pub-6435345827965097"
+          data-ad-slot="7308105727"
+          data-ad-format="rectangle"
+          id={id}
+        />
+      </div>
     </div>
   );
 };

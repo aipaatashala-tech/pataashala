@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
 
       <div className="min-h-screen relative paper-texture">
         <DoodleDecorations />
-        
+
         <main className="container mx-auto px-4 md:px-8 py-16 pb-32 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -24,7 +24,7 @@ const PrivacyPolicy = () => {
           >
             {/* Header */}
             <div className="text-center mb-12">
-              <motion.h1 
+              <motion.h1
                 className="font-hand text-5xl md:text-6xl text-foreground mb-4"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const PrivacyPolicy = () => {
             {/* Content */}
             <div className="space-y-8">
               {/* Introduction */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -48,25 +48,25 @@ const PrivacyPolicy = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">📋 Introduction</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  Welcome to Learning Hub ("we," "our," or "us"). We are committed to protecting your personal 
-                  information and your right to privacy. This Privacy Policy explains how we collect, use, 
+                  Welcome to Learning Hub ("we," "our," or "us"). We are committed to protecting your personal
+                  information and your right to privacy. This Privacy Policy explains how we collect, use,
                   disclose, and safeguard your information when you visit our website.
                 </p>
                 <p className="text-foreground/80 leading-relaxed">
-                  Please read this privacy policy carefully. If you do not agree with the terms of this 
+                  Please read this privacy policy carefully. If you do not agree with the terms of this
                   privacy policy, please do not access the site.
                 </p>
               </motion.section>
 
               {/* Information We Collect */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8 bg-sticky-blue/20"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">📊 Information We Collect</h2>
-                
+
                 <h3 className="font-hand text-2xl text-foreground mt-6 mb-3">Personal Information</h3>
                 <p className="text-foreground/80 leading-relaxed mb-4">
                   We may collect personal information that you voluntarily provide to us when you:
@@ -119,7 +119,7 @@ const PrivacyPolicy = () => {
               </motion.section>
 
               {/* How We Use Your Information */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -154,7 +154,7 @@ const PrivacyPolicy = () => {
               </motion.section>
 
               {/* Cookies */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8 bg-sticky-yellow/20"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -162,7 +162,7 @@ const PrivacyPolicy = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">🍪 Cookies and Tracking Technologies</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  We use cookies and similar tracking technologies to enhance your experience on our website. 
+                  We use cookies and similar tracking technologies to enhance your experience on our website.
                   Cookies are small files stored on your device that help us:
                 </p>
                 <ul className="space-y-2 ml-4 text-foreground/80">
@@ -184,13 +184,13 @@ const PrivacyPolicy = () => {
                   </li>
                 </ul>
                 <p className="text-foreground/80 leading-relaxed mt-4">
-                  You can control cookies through your browser settings. However, disabling cookies may 
+                  You can control cookies through your browser settings. However, disabling cookies may
                   affect certain features of our website.
                 </p>
               </motion.section>
 
               {/* Third-Party Services */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -198,7 +198,7 @@ const PrivacyPolicy = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">🔗 Third-Party Services</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  Our website may contain links to third-party websites and services. We may also use 
+                  Our website may contain links to third-party websites and services. We may also use
                   third-party services including:
                 </p>
                 <ul className="space-y-2 ml-4 text-foreground/80">
@@ -221,7 +221,7 @@ const PrivacyPolicy = () => {
               </motion.section>
 
               {/* Data Security */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8 bg-sticky-green/20"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -229,7 +229,7 @@ const PrivacyPolicy = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">🛡️ Data Security</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  We implement appropriate technical and organizational security measures to protect your 
+                  We implement appropriate technical and organizational security measures to protect your
                   personal information, including:
                 </p>
                 <ul className="space-y-2 ml-4 text-foreground/80">
@@ -251,13 +251,13 @@ const PrivacyPolicy = () => {
                   </li>
                 </ul>
                 <p className="text-foreground/80 leading-relaxed mt-4">
-                  However, no method of transmission over the Internet is 100% secure. While we strive to 
+                  However, no method of transmission over the Internet is 100% secure. While we strive to
                   protect your information, we cannot guarantee absolute security.
                 </p>
               </motion.section>
 
               {/* Your Rights */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -295,7 +295,7 @@ const PrivacyPolicy = () => {
               </motion.section>
 
               {/* Children's Privacy */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8 bg-sticky-pink/20"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -303,15 +303,15 @@ const PrivacyPolicy = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">👶 Children's Privacy</h2>
                 <p className="text-foreground/80 leading-relaxed">
-                  Our website is not intended for children under 13 years of age. We do not knowingly collect 
-                  personal information from children under 13. If you are a parent or guardian and believe 
-                  your child has provided us with personal information, please contact us, and we will 
+                  Our website is not intended for children under 13 years of age. We do not knowingly collect
+                  personal information from children under 13. If you are a parent or guardian and believe
+                  your child has provided us with personal information, please contact us, and we will
                   take steps to delete such information.
                 </p>
               </motion.section>
 
               {/* Changes to Policy */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -319,14 +319,14 @@ const PrivacyPolicy = () => {
               >
                 <h2 className="font-hand text-3xl text-foreground mb-4">📝 Changes to This Policy</h2>
                 <p className="text-foreground/80 leading-relaxed">
-                  We may update this Privacy Policy from time to time. We will notify you of any changes by 
-                  posting the new Privacy Policy on this page and updating the "Last updated" date. We encourage 
+                  We may update this Privacy Policy from time to time. We will notify you of any changes by
+                  posting the new Privacy Policy on this page and updating the "Last updated" date. We encourage
                   you to review this Privacy Policy periodically for any changes.
                 </p>
               </motion.section>
 
               {/* Contact */}
-              <motion.section 
+              <motion.section
                 className="sketch-card p-8 bg-sticky-orange/20"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -337,10 +337,7 @@ const PrivacyPolicy = () => {
                   If you have any questions about this Privacy Policy, please contact us:
                 </p>
                 <ul className="space-y-2 ml-4 text-foreground/80">
-                  <li className="flex items-start gap-2">
-                    <span>📧</span>
-                    <span>Email: privacy@learninghub.com</span>
-                  </li>
+
                   <li className="flex items-start gap-2">
                     <span>📝</span>
                     <span>Contact Form: <Link to="/contact" className="text-primary hover:underline">Click here</Link></span>
@@ -350,7 +347,7 @@ const PrivacyPolicy = () => {
             </div>
 
             {/* Navigation Links */}
-            <motion.nav 
+            <motion.nav
               className="mt-12 pt-8 border-t-2 border-border"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

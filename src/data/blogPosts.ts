@@ -5759,8 +5759,736 @@ The programmers who succeed aren't the smartest—they're the ones who don't giv
   }
 ];
 
+
+export const blogPostsNew: BlogPost[] = [
+  {
+    id: "new-1",
+    slug: "javascript-basics-for-beginners",
+    title: "JavaScript Basics: A Comprehensive Guide for Absolute Beginners",
+    metaTitle: "Learn JavaScript Basics | The Complete Beginner's Guide 2024",
+    metaDescription: "Master JavaScript fundamentals with this easy-to-follow guide. Learn variables, functions, loops, and DOM manipulation to start your web development journey.",
+    excerpt: "Start your coding journey with JavaScript. This guide covers everything from variables to functions, helping you build your first interactive web features.",
+    category: "Programming",
+    readTime: "12 min read",
+    publishedDate: "2024-02-01",
+    updatedDate: "2024-02-05",
+    tags: ["javascript", "coding", "web development", "beginners"],
+    author: {
+      name: "David Chen",
+      bio: "David is a Senior Frontend Developer at TechCorp with 8 years of experience. he loves making complex coding concepts simple for everyone.",
+      avatar: "👨‍💻"
+    },
+    content: `
+## Why Learn JavaScript?
+
+JavaScript is the programming language of the web. Alongside HTML and CSS, it forms the triumvirate of core technologies that power the internet. While HTML provides structure and CSS handles style, JavaScript adds **interactivity and logic**.
+
+Every time you see a slide-in menu, a drag-and-drop interface, or an auto-updating news feed, that's JavaScript in action.
+
+### Key Features:
+- **Client-side execution**: Runs directly in the user's browser
+- **Versatile**: Can be used for frontend (React, Vue) and backend (Node.js)
+- **Huge ecosystem**: Millions of libraries and packages available
+- **High demand**: One of the most sought-after skills in the job market
+
+## Core Concepts
+
+### 1. Variables
+
+Variables are containers for storing data values. In modern JavaScript (ES6+), we use \`let\` and \`const\`.
+
+\`\`\`javascript
+let score = 0;          // Can be changed later
+const PI = 3.14159;    // Cannot be changed
+\`\`\`
+
+**Pro Tip:** Always use \`const\` by default, and only use \`let\` when you know the value needs to change. Avoid \`var\` as it has confusing scoping rules.
+
+### 2. Data Types
+
+JavaScript has several primitive data types:
+- **String**: Text data (e.g., \`"Hello"\`)
+- **Number**: Integers and decimals (e.g., \`42\`, \`9.99\`)
+- **Boolean**: True/False values (e.g., \`true\`)
+- **Null**: Intentional absence of value
+- **Undefined**: Variable declared but not assigned
+
+### 3. Functions
+
+Functions are blocks of code designed to perform a particular task.
+
+\`\`\`javascript
+// Traditional function
+function greet(name) {
+  return "Hello, " + name + "!";
+}
+
+// Modern Arrow Syntax
+const greet = (name) => \`Hello, \${name}!\`;
+\`\`\`
+
+### 4. Control Flow (If/Else)
+
+Logic allows your code to make decisions.
+
+\`\`\`javascript
+let age = 18;
+
+if (age >= 18) {
+  console.log("You can vote!");
+} else {
+  console.log("Too young to vote.");
+}
+\`\`\`
+
+## The DOM (Document Object Model)
+
+The DOM is how JavaScript interacts with HTML. It sees the page as a tree of objects.
+
+### Selecting Elements
+
+\`\`\`javascript
+const button = document.querySelector('.submit-btn');
+const title = document.getElementById('main-title');
+\`\`\`
+
+### Changing Content
+
+\`\`\`javascript
+title.textContent = "Welcome back!";
+title.style.color = "blue";
+\`\`\`
+
+### Event Listeners
+
+Making things interactive involves listening for user actions like clicks.
+
+\`\`\`javascript
+button.addEventListener('click', () => {
+  alert("Button clicked!");
+});
+\`\`\`
+
+## Your First Project: A Simple Counter
+
+Let's combine these concepts to build a simple counter app.
+
+\`\`\`javascript
+let count = 0;
+const button = document.getElementById('increment-btn');
+const display = document.getElementById('count-display');
+
+button.addEventListener('click', () => {
+  count++;
+  display.textContent = count;
+});
+\`\`\`
+
+## Next Steps
+
+1. **Practice**: Build small projects (Calculator, To-Do List)
+2. **Learn ES6**: Master modern features like Destructuring and Spread Syntax
+3. **Explore Frameworks**: Once comfortable, try React or Vue.js
+
+JavaScript is a journey, not a destination. Keep coding, keep breaking things, and keep fixing them!
+`,
+    faqs: [
+      {
+        question: "Do I need math to learn JavaScript?",
+        answer: "Basic arithmetic is enough for most web development. Logic is more important than advanced calculus."
+      },
+      {
+        question: "How long does it take to learn?",
+        answer: "You can grasp the basics in 2-4 weeks. Becoming job-ready typically takes 6-12 months of consistent practice."
+      },
+      {
+        question: "Is JavaScript related to Java?",
+        answer: "No! They are completely different languages. A common saying is: 'Java is to JavaScript as Car is to Carpet'."
+      }
+    ]
+  },
+  {
+    id: "new-2",
+    slug: "python-project-ideas",
+    title: "5 Beginner Python Projects to Build Your Portfolio",
+    metaTitle: "5 Beginner Python Projects | Portfolio Building Guide",
+    metaDescription: "Boost your Python skills with these 5 beginner-friendly project ideas. From automation scripts to data analysis to games, start building today.",
+    excerpt: "Theory is great, but practice makes perfect. Here are 5 practical Python projects perfect for beginners looking to build a portfolio.",
+    category: "Programming",
+    readTime: "7 min read",
+    publishedDate: "2024-02-03",
+    updatedDate: "2024-02-03",
+    tags: ["python", "projects", "coding", "portfolio"],
+    author: {
+      name: "Sarah Jenkins",
+      bio: "Sarah is a Python backend engineer and open-source contributor. She loves helping new coders bridge the gap between tutorials and real coding.",
+      avatar: "🐍"
+    },
+    content: `
+## Why Build Projects?
+
+Tutorial loops are dangerous. You watch a video, follow the steps, and feel like you understand. But the moment you open a blank editor, your mind goes blank.
+
+**Building projects forces you to:**
+- Solve real problems
+- Debug errors (Google is your best friend!)
+- Understand how libraries work together
+- Create something tangible to show employers
+
+Here are 5 beginner-friendly Python projects to get you started.
+
+## 1. Local Weather Fetcher
+
+**Concepts**: APIs, JSON, Requests library
+
+Build a command-line tool that asks for a city name and returns the current weather description and temperature.
+
+**Tools needed:**
+- \`requests\` library
+- OpenWeatherMap API (Free tier)
+
+\`\`\`python
+import requests
+
+city = input("Enter city name: ")
+url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid=YOUR_API_KEY"
+res = requests.get(url)
+data = res.json()
+
+print(f"Weather: {data['weather'][0]['description']}")
+\`\`\`
+
+## 2. To-Do List CLI
+
+**Concepts**: File I/O, Lists, Loops
+
+Create a program that lets users add, remove, and view tasks. Save the tasks to a text file so they persist after the program closes.
+
+**Challenge**: Add a "priority" feature to sort tasks by urgency.
+
+## 3. Web Scraper for Prices
+
+**Concepts**: HTML parsing, BeautifulSoup
+
+Write a script that tracks the price of a product on a website (like Amazon or eBay) and sends you an email if it drops below a certain price.
+
+**Tools needed:**
+- \`BeautifulSoup4\`
+- \`smtplib\` (for emails)
+
+## 4. Number Guessing Game
+
+**Concepts**: Randomness, Conditionals, Input validation
+
+The computer picks a random number between 1 and 100. The user has to guess it. The computer gives hints ("Too high!", "Too low!") until the user gets it right.
+
+**Challenge**: Limit the number of attempts to 7.
+
+## 5. Currency Converter
+
+**Concepts**: Real-time data, Math
+
+Convert amounts between different currencies using live exchange rates.
+
+## How to Showcase These
+
+Don't just leave them on your laptop!
+1. **Push to GitHub**: Write a good \`README.md\` explaining how to run the code.
+2. **Record a demo**: Use Loom or OBS to record a 30-second clip of your tool working.
+3. **Write a blog post**: Explain the hardest bug you solved while building it.
+
+Start small, break things, and have fun!
+`,
+    faqs: [
+      {
+        question: "Which IDE should I use for Python?",
+        answer: "VS Code is excellent and free. PyCharm Community Edition is also a great choice specifically for Python."
+      },
+      {
+        question: "Do I need to memorize syntax?",
+        answer: "No. Understanding logic is key. You can always look up syntax. Even seniors google 'how to open file in python' sometimes!"
+      }
+    ]
+  },
+  {
+    id: "new-3",
+    slug: "react-hooks-guide",
+    title: "Mastering React Hooks: useState, useEffect, and custom Hooks",
+    metaTitle: "React Hooks Guide 2024 | useState & useEffect Explained",
+    metaDescription: "Understand React Hooks once and for all. Deep dive into useState, useEffect, and how to create your own custom hooks for cleaner code.",
+    excerpt: "React Hooks changed the game. Learn how to manage state and side effects in functional components with this comprehensive guide.",
+    category: "Programming",
+    readTime: "10 min read",
+    publishedDate: "2024-02-10",
+    updatedDate: "2024-02-12",
+    tags: ["react", "web development", "hooks", "frontend"],
+    author: {
+      name: "Alex Rivera",
+      bio: "Alex is a Frontend Architect specializing in React performance. He writes about component patterns and state management.",
+      avatar: "⚛️"
+    },
+    content: `
+## The Revolution of Hooks
+
+Before React 16.8, state and lifecycle methods were only available in Class Components. Functional components were "dumb" (stateless). Hooks changed everything by allowing functional components to "hook into" React features.
+
+## 1. useState: Managing Memory
+
+\`useState\` lets a component "remember" things.
+
+\`\`\`javascript
+const [count, setCount] = useState(0);
+\`\`\`
+
+- **count**: The current state value
+- **setCount**: Function to update the state
+- **0**: Initial value
+
+**Common Mistake**: State updates are *asynchronous*. If you rely on the previous value, use the functional update form:
+\`\`\`javascript
+setCount(prev => prev + 1);
+\`\`\`
+
+## 2. useEffect: Handling Side Effects
+
+\`useEffect\` is for things that happen "outside" the render cycle: fetching data, timers, manual DOM changes.
+
+\`\`\`javascript
+useEffect(() => {
+  // 1. Run effect
+  console.log("Component mounted or updated");
+
+  // 2. Optional cleanup
+  return () => console.log("Cleaning up");
+}, [dependency]); // 3. Dependency array
+\`\`\`
+
+### dependency Array Rules:
+- **[] (Empty)**: Runs only once (on mount). Great for API calls.
+- **[prop, state]**: Runs on mount AND whenever \`prop\` or \`state\` changes.
+- **No array**: Runs after *every* render. (Dangerous! Can cause infinite loops).
+
+## 3. Creating Custom Hooks
+
+Custom hooks let you extract component logic into reusable functions. A custom hook is just a JS function that starts with "use" and calls other hooks.
+
+**Example**: \`useWindowSize\`
+
+\`\`\`javascript
+function useWindowSize() {
+  const [size, setSize] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setSize(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return size;
+}
+\`\`\`
+
+**Usage:**
+\`\`\`javascript
+function App() {
+  const width = useWindowSize();
+  return <p>Window width: {width}px</p>;
+}
+\`\`\`
+
+## Best Practices
+1. **Only call Hooks at the top level**: Don't define them inside loops, conditions, or nested functions.
+2. **Only call Hooks from React functions**.
+3. **Name custom hooks starting with "use"**.
+
+Hooks make your code cleaner, easier to read, and easier to test. Start refactoring your class components today!
+`,
+    faqs: [
+      {
+        question: "Are class components dead?",
+        answer: "Not officially, but they are considered legacy. New React code is almost exclusively written with functional components and hooks."
+      },
+      {
+        question: "Can I use hooks inside class components?",
+        answer: "No. Hooks only work inside functional components."
+      }
+    ]
+  },
+  {
+    id: "new-4",
+    slug: "sql-fundamentals-queries",
+    title: "SQL Fundamentals: Essential Queries Every Dev Should Know",
+    metaTitle: "SQL Fundamentals | Learn Essential Database Queries",
+    metaDescription: "Learn the core SQL commands: SELECT, INSERT, UPDATE, DELETE. A definitive guide for developers to interact with relational databases.",
+    excerpt: "Data is the new oil. Learn how to extract, filter, and manipulate data using Standard SQL queries in this beginner-friendly tutorial.",
+    category: "Databases",
+    readTime: "8 min read",
+    publishedDate: "2024-02-15",
+    updatedDate: "2024-02-15",
+    tags: ["sql", "database", "backend", "data"],
+    author: {
+      name: "Priya Patel",
+      bio: "Priya is a Senior Database Administrator. She helps startups scale their data infrastructure and optimizes query performance.",
+      avatar: "🗄️"
+    },
+    content: `
+## What is SQL?
+
+SQL (Structured Query Language) is the standard language for managing Relational Database Management Systems (RDBMS) like PostgreSQL, MySQL, and SQL Server.
+
+Whether you're a frontend dev, backend dev, or data analyst, knowing SQL is a superpower.
+
+## The CRUD Operations
+
+SQL revolves around four main operations (CRUD):
+1. **C**reate (INSERT)
+2. **R**ead (SELECT)
+3. **U**pdate (UPDATE)
+4. **D**elete (DELETE)
+
+### 1. SELECT (Reading Data)
+
+The usage is simple: "Select *columns* FROM *table*".
+
+\`\`\`sql
+-- Select everything
+SELECT * FROM users;
+
+-- Select specific columns
+SELECT first_name, email FROM users;
+\`\`\`
+
+**Filtering with WHERE:**
+\`\`\`sql
+SELECT * FROM users WHERE age > 18 AND country = 'USA';
+\`\`\`
+
+### 2. INSERT (Adding Data)
+
+\`\`\`sql
+INSERT INTO users (first_name, email, age)
+VALUES ('John', 'john@example.com', 25);
+\`\`\`
+
+### 3. UPDATE (Modifying Data)
+
+**Warning**: Always include a \`WHERE\` clause, or you'll update every row!
+
+\`\`\`sql
+UPDATE users
+SET email = 'john.new@example.com'
+WHERE id = 1;
+\`\`\`
+
+### 4. DELETE (Removing Data)
+
+**Warning**: Again, don't forget the \`WHERE\` clause!
+
+\`\`\`sql
+DELETE FROM users WHERE id = 1;
+\`\`\`
+
+## Advanced Power: JOINS
+
+Real data is split across tables. JOINS let you combine them.
+
+**Scenario**: You have \`users\` and \`orders\`. You want to see which user placed which order.
+
+\`\`\`sql
+SELECT users.name, orders.amount
+FROM users
+INNER JOIN orders ON users.id = orders.user_id;
+\`\`\`
+
+- **INNER JOIN**: Only returns records where *both* tables have a match.
+- **LEFT JOIN**: Returns all users, even if they have zero orders.
+
+## Aggregation
+
+SQL is great at math.
+
+\`\`\`sql
+-- Count total users
+SELECT COUNT(*) FROM users;
+
+-- Calculate average order value
+SELECT AVG(amount) FROM orders;
+\`\`\`
+
+## Conclusion
+
+SQL has stood the test of time since the 1970s because it is declarative: you tell the database *what* you want, not *how* to get it. Mastering these basics puts you ahead of 70% of junior developers.
+`,
+    faqs: [
+      {
+        question: "Which database should I learn first?",
+        answer: "PostgreSQL is highly recommended. It's open-source, powerful, and widely used in the industry."
+      },
+      {
+        question: "Is NoSQL better than SQL?",
+        answer: "Not 'better', just different. NoSQL (like MongoDB) is good for unstructured data. SQL is essential for structured, related data (finance, user accounts)."
+      }
+    ]
+  },
+  {
+    id: "new-5",
+    slug: "chatgpt-prompt-engineering",
+    title: "ChatGPT Prompt Engineering: 10 Tips for Better Results",
+    metaTitle: "ChatGPT Prompt Engineering Guide | 10 Expert Tips",
+    metaDescription: "Stop getting generic answers. Learn the art of prompt engineering to unlock the full potential of ChatGPT and other AI models.",
+    excerpt: "The quality of your output depends on the quality of your input. Learn 10 proven strategies to write better prompts and get smarter answers from AI.",
+    category: "AI Tools",
+    readTime: "6 min read",
+    publishedDate: "2024-02-20",
+    updatedDate: "2024-02-21",
+    tags: ["ai", "chatgpt", "productivity", "future"],
+    author: {
+      name: "Marcus Neo",
+      bio: "Marcus explores the intersection of AI and creativity. He writes a popular newsletter on practical AI usage.",
+      avatar: "🤖"
+    },
+    content: `
+## It's Not Magic, It's Math
+
+Large Language Models (LLMs) like ChatGPT are completion engines. They predict the next likely word. To get great results, you need to guide that prediction. This skill is called **Prompt Engineering**.
+
+## 1. Be Specific (Context is King)
+
+**Bad**: "Write an email."
+**Good**: "Write a professional email to a client named Sarah, apologizing for the delay in the project due to a server outage, and offering a 10% discount on the next invoice."
+
+## 2. Assign a Persona
+
+Tell the AI who it is. This sets the tone and expertise level.
+
+"Act as a Senior Marketing Manager with 20 years of experience. Critique the following ad copy..."
+
+## 3. Use 'Chain of Thought'
+
+Ask the AI to explain its thinking. This forces it to reason step-by-step, reducing hallucinations.
+
+"Solve this math problem. **Let's think step by step.**"
+
+## 4. Specify Format
+
+Don't let the AI guess the output format.
+
+"Provide the top 5 tourist spots in Tokyo. **Output the results as a JSON table with columns: name, location, price.**"
+
+## 5. Give Examples (Few-Shot Prompting)
+
+Show the AI what you want.
+
+Input: Good job!
+Sentiment: Positive
+
+Input: I hated it.
+Sentiment: Negative
+
+Input: It was okay.
+Sentiment:
+(AI will fill this in)
+
+## 6. Set Constraints
+
+Tell it what NOT to do.
+
+"Summarize this article in 3 sentences. Do not use jargon. Use simple English only."
+
+## 7. The 'Ask Me Questions' Tactic
+
+If you don't know what information to give, ask the AI to interview you.
+
+"I want to build a fitness plan. Ask me 5 questions about my goals and lifestyle to help you generate the best plan for me."
+
+## 8. Iterate
+
+Your first prompt won't be perfect. Treat it like a conversation. "That's too formal. Make it more casual." or "Expand on point #3."
+
+## Conclusion
+
+Prompt engineering is the new coding. It's the skill of translating human intent into machine execution. Master these tips, and you'll 10x your productivity.
+`,
+    faqs: [
+      {
+        question: "Will AI replace writers?",
+        answer: "AI replaces *bad* writing. It amplifies good writers by handling the research and first drafts, allowing humans to focus on editing and creativity."
+      },
+      {
+        question: "Is prompt engineering a real job?",
+        answer: "Yes! Companies are hiring Prompt Engineers to optimize internal AI tools and build reliable AI products."
+      }
+    ]
+  },
+  {
+    id: "new-6",
+    slug: "number-systems-aptitude",
+    title: "Understanding Number Systems: Aptitude basics",
+    metaTitle: "Number Systems for Aptitude Tests | Complete Guide",
+    metaDescription: "Master the fundamentals of number systems for competitive exams. Learn about integers, prime numbers, divisibility rules, and HCF/LCM.",
+    excerpt: "Prepare for your aptitude test with this primer on Number Systems. We cover classifications, divisibility rules, and essential formulas.",
+    category: "Aptitude & Quant",
+    readTime: "15 min read",
+    publishedDate: "2024-02-25",
+    updatedDate: "2024-02-25",
+    tags: ["math", "aptitude", "exams", "study"],
+    author: {
+      name: "R. Sharma",
+      bio: "Mr. Sharma acts as a mentor for competitive banking and civil service exams. He loves simplifies math for non-math students.",
+      avatar: "🔢"
+    },
+    content: `
+## Why Number Systems?
+
+The "Number System" is the backbone of Quantitative Aptitude. Whether it's the GMAT, CAT, GRE, or government job exams, 10-15% of questions come directly from this topic.
+
+## 1. Classification of Numbers
+
+- **Natural Numbers (N)**: Counting numbers {1, 2, 3...}
+- **Whole Numbers (W)**: Natural numbers + 0 {0, 1, 2...}
+- **Integers (Z)**: {... -2, -1, 0, 1, 2 ...}
+- **Rational Numbers**: Can be written as p/q (e.g., 2/3, 5)
+- **Irrational Numbers**: Cannot be fractions (e.g., √2, π)
+- **Real Numbers**: All of the above.
+- **Prime Numbers**: Divisible only by 1 and itself (2, 3, 5, 7, 11...). **Note**: 1 is neither prime nor composite.
+
+## 2. Divisibility Rules
+
+Memorizing these saves huge time during exams.
+
+- **Div by 2**: Last digit is even (0,2,4,6,8).
+- **Div by 3**: Sum of digits is divisible by 3. (e.g., 123 -> 1+2+3=6 -> Yes).
+- **Div by 4**: Last two digits are divisible by 4. (e.g., 1024 -> 24 is div by 4).
+- **Div by 5**: Last digit is 0 or 5.
+- **Div by 6**: Divisible by BOTH 2 and 3.
+- **Div by 9**: Sum of digits is divisible by 9.
+- **Div by 11**: (Sum of odd place digits) - (Sum of even place digits) = 0 or mult of 11.
+
+## 3. HCF and LCM
+
+### HCF (Highest Common Factor)
+Also called GCD. The largest number that divides two numbers exactly.
+*Example*: HCF of 12 and 18 is 6.
+
+### LCM (Least Common Multiple)
+The smallest number divisible by both numbers.
+*Example*: LCM of 4 and 5 is 20.
+
+**Golden Formula**:
+\`Product of two numbers = HCF × LCM\`
+
+## 4. Practice Question
+
+**Q:** What is the smallest number which when divided by 12, 15, and 18 leaves a remainder of 5 in each case?
+
+**Solution**:
+1. Find LCM of 12, 15, 18.
+   - $12 = 2^2 \times 3$
+   - $15 = 3 \times 5$
+   - $18 = 2 \times 3^2$
+   - LCM = $2^2 \times 3^2 \times 5 = 4 \times 9 \times 5 = 180$.
+2. Required Number = LCM + Remainder
+   - $180 + 5 = 185$.
+
+**Answer**: 185.
+
+## Conclusion
+
+Number theory is vast. Start by mastering these classifications and rules. Practice 20 questions daily to build speed.
+`,
+    faqs: [
+      {
+        question: "Is 0 a natural number?",
+        answer: "No, 0 is a Whole number but not a Natural number."
+      },
+      {
+        question: "Is 2 a prime number?",
+        answer: "Yes! 2 is the ONLY even prime number."
+      }
+    ]
+  },
+  {
+    id: "new-7",
+    slug: "productivity-hub-student-planner",
+    title: "The Ultimate Productivity Hub: Tools to Organize Your Student Life",
+    metaTitle: "Student Productivity Hub | Top Tools & Planners 2024",
+    metaDescription: "Stop procrastinating. Discover the best digital planners, note-taking apps, and focus tools to organize your student life.",
+    excerpt: "Feeling overwhelmed? We've curated the best digital tools to help you manage assignments, take better notes, and stop procrastinating.",
+    category: "Other Websites",
+    readTime: "8 min read",
+    publishedDate: "2024-03-01",
+    updatedDate: "2024-03-01",
+    tags: ["productivity", "students", "tools", "apps"],
+    author: {
+      name: "Jessica Lee",
+      bio: "Jessica helps students build sustainable productivity systems. She reviews apps and planners on her popular blog.",
+      avatar: "⚡"
+    },
+    content: `
+## The Student's Dilemma
+
+Assignments, exams, clubs, part-time jobs, social life. The modern student juggles more than ever before. Relying on "remembering it" is a recipe for disaster. You need a **system**.
+
+## 1. Note-Taking Apps
+
+### Notion
+The all-in-one workspace. You can build a wiki, a calendar, a database, and a to-do list all in one page.
+**Best for**: Students who love customizing everything.
+
+### Obsidian
+A "second brain" that links notes together. It uses Markdown files saved on your computer.
+**Best for**: Research students and complex topics.
+
+### GoodNotes / Notability (iPad)
+If you love handwriting but hate carrying notebooks.
+**Best for**: Math equations and annotating PDF slides.
+
+## 2. Task Management
+
+### Todoist
+Simple, natural language input. "Submit paper every Friday at 5pm" automatically sets a recurring task.
+**Best for**: Quick capture of tasks.
+
+### Trello / Kanban
+Visual boards. Drag tasks from "To Do" -> "Doing" -> "Done".
+**Best for**: Group projects.
+
+## 3. Focus Tools
+
+### Forest
+Plant a virtual tree. If you leave the app to check Instagram, your tree dies.
+**Best for**: Gamifying focus.
+
+### Centered
+Combines flow music, task tracking, and a virtual coach that nudges you if you get distracted.
+**Best for**: Deep work sessions.
+
+## The "2-Minute Rule"
+
+Tools are useless without a philosophy. Adopt the **2-Minute Rule**:
+*If a task takes less than 2 minutes (e.g., replying to an email, submitting a form), do it immediately.*
+
+Don't write it down. Just do it. This clears mental clutter.
+
+## Conclusion
+
+Don't spend more time organizing than working. Pick **one** app for notes and **one** app for tasks. Stick to them. Consistency beats complexity.
+`,
+    faqs: [
+      {
+        question: "Is Notion free for students?",
+        answer: "Yes! Notion offers a free Personal Pro plan for students with a valid .edu email address."
+      },
+      {
+        question: "Paper vs Digital planner?",
+        answer: "Digital is better for recurring tasks and reminders. Paper is better for daily clarity and memory retention. Many productive people use a hybrid system."
+      }
+    ]
+  }
+];
+
 // Combine all posts
-export const allBlogPosts = [...blogPosts, ...blogPosts2, ...blogPosts3];
+export const allBlogPosts = [...blogPosts, ...blogPosts2, ...blogPosts3, ...blogPostsNew];
 
 // Helper function to get post by slug
 export const getPostBySlug = (slug: string): BlogPost | undefined => {
@@ -5771,7 +6499,7 @@ export const getPostBySlug = (slug: string): BlogPost | undefined => {
 export const getRelatedPosts = (currentSlug: string, count: number = 3): BlogPost[] => {
   const currentPost = getPostBySlug(currentSlug);
   if (!currentPost) return allBlogPosts.slice(0, count);
-  
+
   return allBlogPosts
     .filter(post => post.slug !== currentSlug && post.category === currentPost.category)
     .slice(0, count);
