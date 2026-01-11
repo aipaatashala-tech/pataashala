@@ -74,7 +74,7 @@ export const AdBanner = ({
           className="adsbygoogle"
           style={adStyle}
           data-ad-client="ca-pub-6435345827965097"
-          data-ad-slot="" /* Add your ad slot ID from AdSense dashboard */
+          data-ad-slot="7308105727"
           data-ad-format="horizontal"
           data-full-width-responsive="true"
         />
